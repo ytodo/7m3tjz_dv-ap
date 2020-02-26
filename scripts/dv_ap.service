@@ -1,0 +1,14 @@
+[Unit]
+Description=7M3TJZ DV Access Point (DVAP Tool for G1)
+After=network.target pforward.service
+Wants=pforward.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/dv_ap
+ExecStop=/usr/bin/killall -q -s 2 dv_ap
+ExecStopPost=/bin/rm -f /var/run/dv_ap.pid
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

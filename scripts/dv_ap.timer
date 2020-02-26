@@ -1,0 +1,9 @@
+[Unit]
+Description=dv_ap Start delay timer
+
+[Timer]
+OnBootSec=35sec
+#Unit=dv_ap.service
+
+[Install]
+WantedBy=timers.target

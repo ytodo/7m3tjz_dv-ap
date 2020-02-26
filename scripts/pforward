@@ -1,0 +1,13 @@
+#!/bin/sh
+
+### Stretch
+IPADDR=`ifconfig wlan0 | awk '/inet / {print $2}'`
+
+### Jessie
+#IPADDR=`ifconfig wlan0 | awk '/inet / {print $2}' | awk -F: '{print $2}'`
+
+echo $IPADDR
+upnpc -d 8080 tcp
+upnpc -d 40000 udp
+upnpc -a $IPADDR 8080 8080 tcp
+upnpc -a $IPADDR 40000 40000 udp

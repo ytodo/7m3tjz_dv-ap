@@ -1,0 +1,11 @@
+[Unit]
+Description=uPnPc Port Forward Setting
+After=network.target
+
+[Service]
+#Type=forking
+ExecStart=/usr/local/bin/pforward
+Restart=on-failure
+
+[Install]
+WantedBy=Multi-user.target
